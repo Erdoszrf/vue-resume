@@ -8,32 +8,33 @@
 <body>
   <div id="app">
     <aside>
-      <button class="btn">登录</button>
-      <button class="btn">注册</button>
+      <button class="btn" @click="loginShow">登录</button>
+      <button class="btn" @click="signUpShow">注册</button>
     </aside>
     <main>
       <div class="resume">
         <h2 contenteditable="true" v-text="resume.name"></h2>
       </div>
     </main>
-    <div class="login">
+    <div class="login" v-show="loginTaggle" >
       <div>
-          <input type="text">
-          <input type="password">
-          <button>登录</button>
+          <input type="text" v-model="login.username">
+          <input type="password" v-model="login.password">
+          <button @click="gologin">登录</button>
       </div>
       
     </div>
-    <div class="signup">
+    <div class="signup" v-show="signUpTaggle" >
       <div>
-          <input type="text">
-          <input type="password">
-          <button>注册</button>
+          <input type="text" v-model="signup.username">
+          <input type="password" v-model="signup.password">
+          <button @click="gosignUp">注册</button>
       </div>
       
     </div>
   </div>
 <script src="/vendors/av.min.js"></script>
+<script src="/src/js/avinit.js"></script>
 <script src="/vendors/vue.min.js"></script>
 <script src="./js/app.js"></script>
 </body>
